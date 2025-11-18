@@ -69,6 +69,13 @@ const verifyOtpAndLogin = async (req, res) => {
     if (!user.isVerified) user.isVerified = true;
     await user.save();
 
+    // Send welcome email after successful verification
+    await sendEmail({
+      email: user.email,
+      subject: 'Welcome to VeggieFinder!',
+      message: `Welcome to VeggieFinder!\n\nCurated with care by Ansh Yadav, your guide to exploring nutritious and tasty vegetarian dishes.`,
+    });
+
     res.json({ user: { id: user._id, email: user.email }, token: generateToken(user._id, user.email) });
 };
 
