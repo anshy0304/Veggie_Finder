@@ -25,7 +25,7 @@ router.post('/signup', async (req, res) => {
     }
     const exists = await User.findOne({ email });
     if (exists) {
-      return res.status(400).json({ message: 'User already exists. Please log in.' });
+      return res.status(400).json({ message: 'You already signed up. Please proceed to login.' });
     }
 
     const user = await User.create({ email, password, isVerified: false });

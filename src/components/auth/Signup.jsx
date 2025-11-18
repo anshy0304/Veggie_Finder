@@ -26,7 +26,11 @@ const Signup = () => {
       }
       
       // Call the signup API endpoint
-      await signUp(email, password);
+      const result = await signUp(email, password);
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
 
       // On success, navigate to the OTP page and pass the email
       navigate('/verify-otp', { state: { email } });
