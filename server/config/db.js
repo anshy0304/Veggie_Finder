@@ -1,4 +1,4 @@
-// This is the serverless-optimized version of server/config/db.js
+
 
 import mongoose from 'mongoose';
 

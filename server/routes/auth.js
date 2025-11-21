@@ -1,4 +1,4 @@
-// This is the final, robust version for server/routes/auth.js
+
 
 import express from 'express';
 import User from '../models/User.js';
